@@ -16,7 +16,8 @@ const adminPassword = "PASS ADMIN";
 
 const vipPassword = "fc_passwordvip";
 
-const playersToSetVIP = 26;
+const playersToSetVIP = 3;
+const playersToSetPublic = 2;
 
 const scoreLimitPractice = 0;
 const timeLimitPractice = 0;
@@ -830,6 +831,10 @@ room.onPlayerLeave = function (player) {
     }
     setActivity(player, 0);
     updateRoleOnPlayerOut();
+    if (room.getPlayerList().length == playersToSetPublic){
+        room.setPassword();
+        room.sendChat("[:white_check_mark:] Host abierto al publico.",null);
+    } 
 }
 
 room.onPlayerKicked = function (kickedPlayer, reason, ban, byPlayer) {
@@ -839,6 +844,7 @@ room.onPlayerKicked = function (kickedPlayer, reason, ban, byPlayer) {
 /* PLAYER ACTIVITY */
 
 room.onPlayerChat = function (player, message) {
+    originalMessage = message;
     message = message.split(/ +/);
     player.team != Team.SPECTATORS ? setActivity(player, 0) : null;
     if (["!help"].includes(message[0].toLowerCase())) {
@@ -1311,59 +1317,59 @@ room.onPlayerChat = function (player, message) {
         var chatColor = "";
         if (stats[Ss.WI] > 399){
             announcement += "🔥 「𝐆𝐎𝐀𝐓」"
-            chatColor = ""
+            chatColor = "0xFF8000"
         } else if (stats[Ss.WI] > 199){
             announcement += "🔸 「𝗦𝘂𝗽𝗲𝗿-𝗘𝘀𝘁𝗿𝗲𝗹𝗹𝗮」"
-            chatColor = ""
+            chatColor = "0x0040FF"
         } else if (stats[Ss.WI] > 179){
-            announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
+            announcement += "🔹 「𝗘𝘀𝘁𝗿𝗲𝗹𝗹𝗮」"
+            chatColor = "0xFF7900"
         } else if (stats[Ss.WI] > 159){
-            announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
+            announcement += "✓ 「𝗖𝗮𝗺𝗽𝗲𝗼𝗻」"
+            chatColor = "0xFFFF00"
         } else if (stats[Ss.WI] > 129){
-            announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
-        } else if (stats[Ss.WI] > 899){
-            announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
+            announcement += "👑 「𝗖𝗿𝗮𝗰𝗸」"
+            chatColor = "0xFFC375"
+        } else if (stats[Ss.WI] > 89){
+            announcement += "💲 「𝗟𝗲𝘆𝗲𝗻𝗱𝗮」"
+            chatColor = "0xBFFF00"
         } else if (stats[Ss.WI] > 69){
-            announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
+            announcement += "👿 「𝐄𝐱𝐩𝐞𝐫𝐭𝐨」"
+            chatColor = "0xEC77CE"
         } else if (stats[Ss.WI] > 59){
-            announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
+            announcement += "💪 「𝗥𝗲𝘃𝗲𝗹𝗮𝗰𝗶𝗼𝗻」"
+            chatColor = "0xFA58DF"
         } else if (stats[Ss.WI] > 44){
-            announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
+            announcement += "👽 「𝗩𝗲𝘁𝗲𝗿𝗮𝗻𝗼」"
+            chatColor = "0x73EC59"
         } else if (stats[Ss.WI] > 34){
-            announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
+            announcement += "👿 「𝗜𝗺𝗽𝗮𝗿𝗮𝗯𝗹𝗲」"
+            chatColor = "0xFE2E2E"
         } else if (stats[Ss.WI] > 24){
-            announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
+            announcement += "⚽ 「𝗣𝗿𝗼𝗳𝗲𝘀𝗶𝗼𝗻𝗮𝗹」"
+            chatColor = "0x04B404"
         } else if (stats[Ss.WI] > 14){
             announcement += "😎 「𝗔𝗽𝗿𝗲𝗻𝗱𝗶𝘇」"
-            chatColor = ""
+            chatColor = "0x2EFEF7"
         } else if (stats[Ss.WI] > 4){
             announcement += "🎖️ 「𝗣𝗿𝗶𝗻𝗰𝗶𝗽𝗶𝗮𝗻𝘁𝗲」"
-            chatColor = ""
+            chatColor = "0xDDD4DB"
         } else {
             announcement += "㋡ 「𝗜𝗻𝗶𝗰𝗶𝗮𝗻𝘁𝗲」"
             chatColor = "0xDDD4DB"
         }
-
-        if (JSON.parse(localStorage.getItem(getAuth(player)))[Ss.RL] == "vip"){
+        var playerRole = JSON.parse(localStorage.getItem(getAuth(player)))[Ss.RL];
+        if (playerRole == "vip"){
             announcement += "「👑VIP」";
             chatColor = "0x00B4FF";
         }
-        if (JSON.parse(localStorage.getItem(getAuth(player)))[Ss.RL] == "admin"){
+        if (playerRole == "admin" || playerRole == "master"){
             announcement += "「😈」";
             chatColor = "0xF8FF00";
         }
 
-        room.sendAnnouncement(announcement + player.name + ": " + message, null, chatColor);
-             
+        room.sendAnnouncement(announcement + player.name + ": " + originalMessage, null, chatColor);
+        return false;   
     }   
 }
 
