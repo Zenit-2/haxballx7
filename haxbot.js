@@ -996,6 +996,23 @@ room.onPlayerChat = function (player, message) {
 
     return false;
 }
+    else if (["!goats"].includes(message[0].toLowerCase())) {
+	var tableau = [];
+	try{
+	Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key) && JSON.parse(localStorage.getItem(key))[Ss.WI] > 400) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.WI])]); } });
+	}
+	catch{
+
+	}
+	if (tableau.length < 5) {
+		room.sendAnnouncement("[PV] Aún nadie ha ganado tantos partidos.", player.id,0x73EC59);
+		return false;
+	}
+	tableau.sort(function (a, b) { return b[1] - a[1]; });
+	room.sendAnnouncement("[📄] ✅ GOATS> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id,0x73EC59);
+
+    return false;
+}
     else if (["!goals"].includes(message[0].toLowerCase())) {
 	var tableau = [];
 	try{
