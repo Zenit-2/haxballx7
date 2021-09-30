@@ -8,16 +8,16 @@ const roomName = "[🏆] 𝗙𝘂𝘁𝘀𝗮𝗹 𝘅𝟳 𝗙𝗖 🎉";
 const botName = "𝗙𝗖";
 const maxPlayers = 30;
 const roomPublic = true;
-const geo = [{ "code": "ni", "lat": -37.0484806, "lon": -81.6806884 }];
+const geo = [{"code": "ni", "lat": -34.6, "lon": -58.4}]; // Geo
 
 const room = HBInit({ roomName: roomName, maxPlayers: maxPlayers, public: roomPublic, playerName: botName, geo: geo[0] });
 
-const adminPassword = "PASS ADMIN";
+const adminPassword = "fc_adminnx7_";
 
 const vipPassword = "fc_passwordvip";
 
-const playersToSetVIP = 3;
-const playersToSetPublic = 2;
+const playersToSetVIP = 28;
+const playersToSetPublic = 27;
 
 const scoreLimitPractice = 0;
 const timeLimitPractice = 0;
@@ -40,6 +40,14 @@ const frasesasis = [" 🔥🔥¡Y el pase milimetrico de ", " ¡Y donde pone el 
 
 const frasesautogol = [" ¡Prende el monitor! ", " Para que te trajeee ", " ¡El troll de troles es ", " ¡Increible lo que hace este muchacho, pero sería mejor hacerlo en el arco contrario ", " ¡Genial ahora en el otro arco ", " ¡Se equivoco de arco ", " ¡Para el otro lado "];
 
+var isTimeAddedShown = false;
+var isTimeAddedShowndos = false;
+var isTimeAddedShowntres = false;
+var isTimeAddedShowncuatro = false;
+var isTimeAddedShowncinco = false;
+var isTimeAddedShownseis = false;
+var isTimeAddedShownquince = false;
+var isTimeAddedShownsiete = false;
 room.setTeamsLock(true);
 
 /* STADIUM */
@@ -152,6 +160,46 @@ function pointDistance(p1, p2) {
 }
 
 /* BUTTONS */
+
+function PublicitaDiscord(player) {
+    var scores = room.getScores();
+    if (scores.time > 20 && !isTimeAddedShownseis) {
+    room.sendAnnouncement("                                        ▒█▀▀▄ ▀█▀ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▄ ", null, 0x9250FD, "bold")
+    room.sendAnnouncement("                                        ▒█░▒█ ▒█░ ░▀▀▀▄▄ ▒█░░░ ▒█░░▒█ ▒█▄▄▀ ▒█░▒█ ", null, 0x8466FD, "bold")
+    room.sendAnnouncement("                                        ▒█▄▄▀ ▄█▄ ▒█▄▄▄█ ▒█▄▄█ ▒█▄▄▄█ ▒█░▒█ ▒█▄▄▀ ", null, 0x7B73FD, "bold");
+    room.sendAnnouncement("                                        💬  https://discord.gg/H4UPFpDJyA ⬅⬅⬅ 𝗙𝘂𝘁𝘀𝗮𝗹 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆 [𝗡𝘂𝗲𝘃𝗼]", null, 0xF6FF43, "bold");
+    room.sendAnnouncement("                                        💬  https://discord.gg/wmX35hKQrv ⬅⬅⬅ 𝗙𝘂𝘁𝘀𝗮𝗹 𝗟𝗲𝗮𝗴𝘂𝗲 [𝗟𝗶𝗴𝗮]", null, 0xF6FF43, "bold");
+    isTimeAddedShownseis = true;
+    }
+}
+
+function PublicitaDonacion(player) {
+    var scores = room.getScores();
+    if (scores.time > 40 && !isTimeAddedShownsiete) {
+    room.sendAnnouncement("                                                                                                           ░█▀▀▄ ░█▀▀▀█ ░█▄─░█ ─█▀▀█", player, 0xffcd2c, "normal", 0);
+    room.sendAnnouncement("                                                                                                           ░█─░█ ░█──░█ ░█░█░█ ░█▄▄█", player, 0xea8f73, "normal", 0);
+    room.sendAnnouncement("                                                                                                           ░█▄▄▀ ░█▄▄▄█ ░█──▀█ ░█─░█", player, 0xd757b3, "normal", 0);
+    room.sendAnnouncement("                       ¡𝗗𝗼𝗻𝗮 𝘆 𝗼𝗯𝘁𝗲𝗻𝗲 𝘃𝗶𝗽 𝘆 𝗺𝗮𝘀 𝗯𝗲𝗻𝗲𝗳𝗶𝗰𝗶𝗼𝘀!", player, 0xd733ff, "bold", 0);
+    room.sendAnnouncement("                                                                                                          ➡➡  🔗 ʟɪɴᴋ: https://discord.gg/HJxrRxpWz7", player, 0xf1ff33, "bold");
+    isTimeAddedShownsiete = true;
+    }
+}
+
+function PublicitaHelp(player) {
+    var scores = room.getScores();
+    if (scores.time > 10 && !isTimeAddedShowncinco) {
+    room.sendAnnouncement("「📣」 ¡𝗨𝘀𝗮 '!𝗮𝘆𝘂𝗱𝗮' 𝗽𝗮𝗿𝗮 𝘃𝗲𝗿 𝗹𝗮 𝗹𝗶𝘀𝘁𝗮 𝗱𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼𝘀 𝗱𝗶𝘀𝗽𝗼𝗻𝗶𝗯𝗹𝗲𝘀!", player, 0xd733ff, "bold", 0);
+    isTimeAddedShowncinco = true;
+    }
+}
+
+function PublicitaLiga(player) {
+    var scores = room.getScores();
+    if (scores.time > 80 && !isTimeAddedShowncuatro) {
+    room.sendAnnouncement("「📣」 𝗧𝗲𝗻𝗲𝗺𝗼𝘀 𝘂𝗻𝗮 𝗹𝗶𝗴𝗮 𝗱𝗲 𝘅𝟰 𝗱𝗲𝗱𝗶𝗰𝗮𝗱𝗮 𝗮 𝗹𝗮 𝗰𝗼𝗺𝘂𝗻𝗶𝗱𝗮𝗱. 𝗠𝗮𝘀 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝗰𝗶𝗼𝗻 𝘂𝘀𝗮𝗻𝗱𝗼 '!𝗱𝗶𝘀𝗰𝗼𝗿𝗱'", player, 0xd733ff, "bold", 0);
+    isTimeAddedShowncuatro = true;
+    }
+}
 
 function topBtn() {
     if (teamS.length == 0) {
@@ -746,6 +794,10 @@ setInterval(() => {
 /* PLAYER MOVEMENT */
 
 room.onPlayerJoin = function (player) {
+	console.log("---------------------------------------------------");
+	console.log("[📢]Nick: "+player.name);
+	console.log("[📢]Conn: "+player.conn);
+	console.log("[📢]Auth: "+player.auth);
     extendedP.push([player.id, player.auth, player.conn, false, 0, 0, false]);
     updateRoleOnPlayerIn();
     if (room.getPlayerList().length == playersToSetVIP){
@@ -756,6 +808,9 @@ room.onPlayerJoin = function (player) {
     room.sendAnnouncement("👋 ¡𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼 " + player.name + " 𝗔 𝗙𝘂𝘁𝘀𝗮𝗹 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆!", null, 0xFFC37,"bold");
     room.sendAnnouncement("👑 ¡𝗙𝘂𝘁𝘀𝗮𝗹 𝘅𝟳! (𝗛𝗼𝘀𝘁 𝗱𝗲 𝗽𝗿𝘂𝗲𝗯𝗮)", player.id,0xFFC375,"bold");
     room.sendAnnouncement("---------------------------------------------------", player.id, 0x4A3FF5);
+    if (room.getPlayerList().length > 1 && room.getPlayerList().length < 5 ){
+            room.sendAnnouncement("😎 ¡𝗘𝗹 𝗺𝗼𝗱𝗼 𝗱𝗲 𝗽𝗿𝗮𝗰𝘁𝗶𝗰𝗮 𝗲𝘀𝘁á 𝗮𝗰𝘁𝗶𝘃𝗮𝗱𝗼 𝗵𝗮𝘀𝘁𝗮 𝗾𝘂𝗲 𝗵𝗮𝘆𝗮𝗻 𝟲 𝗽𝗲𝗿𝘀𝗼𝗻𝗮𝘀 𝗲𝗻 𝗲𝗹 𝗵𝗼𝘀𝘁!", player.id, 0x4A3FF5);
+    }
     if (localStorage.getItem(player.auth) != null) {
         var playerRole = JSON.parse(localStorage.getItem(player.auth))[Ss.RL];
         if (playerRole == "admin" || playerRole == "master" ) {
@@ -763,6 +818,11 @@ room.onPlayerJoin = function (player) {
             room.sendAnnouncement("Admin「" + player.name + "」¡𝗘𝗻𝘁𝗿𝗼 𝗮 𝗽𝗼𝗻𝗲𝗿 𝗼𝗿𝗱𝗲𝗻 𝗲𝗻 𝗹𝗮 𝘀𝗮𝗹𝗮!", null, 0xFF7900, "bold");
         }
     }
+    if (localStorage.getItem(getAuth(player)) == null){
+        stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", player.name]
+        localStorage.setItem(getAuth(player), JSON.stringify(stats));
+    }
+    
 }
 
 room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
@@ -833,7 +893,7 @@ room.onPlayerLeave = function (player) {
     updateRoleOnPlayerOut();
     if (room.getPlayerList().length == playersToSetPublic){
         room.setPassword();
-        room.sendChat("[:white_check_mark:] Host abierto al publico.",null);
+        room.sendChat("[✅] Host abierto al publico.",null);
     } 
 }
 
@@ -848,8 +908,8 @@ room.onPlayerChat = function (player, message) {
     message = message.split(/ +/);
     player.team != Team.SPECTATORS ? setActivity(player, 0) : null;
     if (["!help"].includes(message[0].toLowerCase())) {
-        room.sendChat("[PV] Comandos : !me, !games, !wins, !goals, !assists, !cs, !afks, !mutes, !bans.", player.id);
-        player.admin ? room.sendChat("[PV] Admin : !mute <duration = 3> #<id>, !unmute all/#<id>, !clearbans <number = all>, !slow <duration>, !endslow", player.id) : null;
+        room.sendAnnouncement("[📄] Comandos : !me, !mostrarstats, !games, !wins, !goals, !assists, !cs, !afks, !mutes, !bans.", player.id,0x309D2B,"bold");
+        player.admin ? room.sendAnnouncement("[📄] Admin : !mute <duration = 3> #<id>, !unmute all/#<id>, !clearbans <number = all>, !slow <duration>, !endslow", player.id,0x309D2B,"bold") : null;
     }
     else if (["!afk"].includes(message[0].toLowerCase())) {
         if (players.length != 1 && player.team != Team.SPECTATORS) {
@@ -865,9 +925,12 @@ room.onPlayerChat = function (player, message) {
             room.setPlayerTeam(player.id, Team.SPECTATORS);
         }
         setAFK(player, !getAFK(player));
-        room.sendChat(player.name + (getAFK(player) ? " is now AFK !" : " is not AFK anymore !"));
-        getAFK(player) ? updateRoleOnPlayerOut() : updateRoleOnPlayerIn();
-    }
+	    room.sendAnnouncement(player.name + (getAFK(player) ? " está AFK !" : " ya está listo !"),null,(getAFK(player) ? 0xFF7B08 : 0x8FFF8F));
+	getAFK(player) ? updateRoleOnPlayerOut() : updateRoleOnPlayerIn();
+    localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player"];
+    setTimeout (() => { if (getAFK(player) && stats[Ss.RL] != "vip"){room.kickPlayer(player.id,"Tiempo de afk excedido",false) } },30 * 60 * 1000)
+    return false;
+}
     else if (["!afks", "!afklist"].includes(message[0].toLowerCase())) {
         var cstm = "[PV] Lista de AFK : ";
         for (var i = 0; i < extendedP.length; i++) {
@@ -890,58 +953,100 @@ room.onPlayerChat = function (player, message) {
     else if (["!me"].includes(message[0].toLowerCase())) {
         var stats;
         localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00"];
-        room.sendChat("[PV] " + player.name + "> PJ: " + stats[Ss.GA] + ", Victorias: " + stats[Ss.WI] + ", Empates: " + stats[Ss.DR] + ", Derrotas: " + stats[Ss.LS] + ", WR: " + stats[Ss.WR] + "%, Goles: " + stats[Ss.GL] + ", Asistencias: " + stats[Ss.AS] + ", GK: " + stats[Ss.GK] + ", CS: " + stats[Ss.CS] + ", CS%: " + stats[Ss.CP] + "%", player.id);
+	room.sendAnnouncement("[📄] Stats de " + player.name + ": 🎮 Partidos Jugados: " + stats[Ss.GA] + ", ✅ Victorias: " + stats[Ss.WI] + ", ❌ Derrotas: " + stats[Ss.LS] + ", WR: " + stats[Ss.WR] + "%, ⚽️ Goles: " + stats[Ss.GL] + ", 👟 Asistencias: " + stats[Ss.AS] + ", 🤚 GK: " + stats[Ss.GK] + ", 🤚 Vallas: " + stats[Ss.CS] + ", 🤚 CS%: " + stats[Ss.CP] + "%", player.id,0x73EC59,"bold");
+	room.sendAnnouncement("「👓」 Este mensaje solamente lo podés ver vos, si querés mostrar tus stats usa el comando '!mostrarstats'!", player.id,0xFF7900,"bold");
+    }
+    else if (["!mostrarstats"].includes(message[0].toLowerCase())) {
+        var stats;
+        localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00"];
+        room.sendAnnouncement("[📄] El jugador " + player.name + " mostró sus stats! [!mostrarstats]",null,0xFF7900,"bold")
+	room.sendAnnouncement("[📄] Stats de " + player.name + ": 🎮 Partidos Jugados: " + stats[Ss.GA] + ", ✅ Victorias: " + stats[Ss.WI] + ", ❌ Derrotas: " + stats[Ss.LS] + ", WR: " + stats[Ss.WR] + "%, ⚽️ Goles: " + stats[Ss.GL] + ", 👟 Asistencias: " + stats[Ss.AS] + ", 🤚 GK: " + stats[Ss.GK] + ", 🤚 Vallas: " + stats[Ss.CS] + ", 🤚 CS%: " + stats[Ss.CP] + "%", null,0x73EC59,"bold");
     }
     else if (["!games"].includes(message[0].toLowerCase())) {
-        var tableau = [];
-        Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.GA])]); } });
-        if (tableau.length < 5) {
-            room.sendChat("[PV] Aún no se han jugado partidos suficientes.", player.id);
-            return false;
-        }
-        tableau.sort(function (a, b) { return b[1] - a[1]; });
-        room.sendChat("[PV] Partidos Jugados> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id);
-    }
+	var tableau = [];
+	try{
+	Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.GA])]); } });
+	}
+	catch{
+
+	}
+	if (tableau.length < 5) {
+		room.sendAnnouncement("[PV] Aún no se han jugado partidos suficientes.", player.id,0xFF0000);
+		return false;
+	}
+	tableau.sort(function (a, b) { return b[1] - a[1]; });
+	room.sendAnnouncement("[📄] 🎮 Partidos Jugados> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id,0x73EC59);
+
+    return false;
+}
     else if (["!wins"].includes(message[0].toLowerCase())) {
-        var tableau = [];
-        Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.WI])]); } });
-        if (tableau.length < 5) {
-            room.sendChat("[PV] Aún no se han jugado partidos suficientes.", player.id);
-            return false;
-        }
-        tableau.sort(function (a, b) { return b[1] - a[1]; });
-        room.sendChat("[PV] Victorias> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id);
-    }
+	var tableau = [];
+	try{
+	Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.WI])]); } });
+	}
+	catch{
+
+	}
+	if (tableau.length < 5) {
+		room.sendAnnouncement("[PV] Aún no se han jugado partidos suficientes.", player.id,0x73EC59);
+		return false;
+	}
+	tableau.sort(function (a, b) { return b[1] - a[1]; });
+	room.sendAnnouncement("[📄] ✅ Victorias> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id,0x73EC59);
+
+    return false;
+}
     else if (["!goals"].includes(message[0].toLowerCase())) {
-        var tableau = [];
-        Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.GL])]); } });
-        if (tableau.length < 5) {
-            room.sendChat("[PV] Aún no se han jugado partidos suficientes.", player.id);
-            return false;
-        }
-        tableau.sort(function (a, b) { return b[1] - a[1]; });
-        room.sendChat("[PV] Goles> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id);
-    }
+	var tableau = [];
+	try{
+	Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.GL])]); } });
+	}
+	catch{
+
+	}
+	if (tableau.length < 5) {
+		room.sendAnnouncement("[📄] Aún no se han jugado partidos suficientes.", player.id,0x73EC59);
+		return false;
+	}
+	tableau.sort(function (a, b) { return b[1] - a[1]; });
+	room.sendAnnouncement("[📄] ⚽️ Goles> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id,0x73EC59);
+
+    return false;
+}
     else if (["!assists"].includes(message[0].toLowerCase())) {
-        var tableau = [];
-        Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.AS])]); } });
-        if (tableau.length < 5) {
-            room.sendChat("[PV] Aún no se han jugado partidos suficientes.", player.id);
-            return false;
-        }
-        tableau.sort(function (a, b) { return b[1] - a[1]; });
-        room.sendChat("[PV] Asistencias> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id);
-    }
+	var tableau = [];
+	try{
+	Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.AS])]); } });
+	}
+	catch{
+
+	}
+	if (tableau.length < 5) {
+		room.sendAnnouncement("[PV] Aún no se han jugado partidos suficientes.", player.id);
+		return false;
+	}
+	tableau.sort(function (a, b) { return b[1] - a[1]; });
+	room.sendAnnouncement("[📄] 👟 Asistencias> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id,0x73EC59);
+
+    return false;
+}
     else if (["!cs"].includes(message[0].toLowerCase())) {
-        var tableau = [];
-        Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.CS])]); } });
-        if (tableau.length < 5) {
-            room.sendChat("[PV] Aún no se han jugado partidos suficientes.", player.id);
-            return false;
-        }
-        tableau.sort(function (a, b) { return b[1] - a[1]; });
-        room.sendChat("[PV] Vallas Invictas> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id);
-    }
+	var tableau = [];
+	try{
+	Object.keys(localStorage).forEach(function (key) { if (!["player_name", "view_mode", "geo", "avatar", "player_auth_key"].includes(key)) { tableau.push([(JSON.parse(localStorage.getItem(key))[Ss.NK]), (JSON.parse(localStorage.getItem(key))[Ss.CS])]); } });
+	}
+	catch{
+
+	}
+	if (tableau.length < 5) {
+		room.sendAnnouncement("[PV] Aún no se han jugado partidos suficientes.", player.id,0x73EC59);
+		return false;
+	}
+	tableau.sort(function (a, b) { return b[1] - a[1]; });
+	room.sendAnnouncement("[📄] 🤚 Vallas Invictas> #1 " + tableau[0][0] + ": " + tableau[0][1] + " #2 " + tableau[1][0] + ": " + tableau[1][1] + " #3 " + tableau[2][0] + ": " + tableau[2][1] + " #4 " + tableau[3][0] + ": " + tableau[3][1] + " #5 " + tableau[4][0] + ": " + tableau[4][1], player.id,0x73EC59);
+
+    return false;
+}
     else if (["!claim"].includes(message[0].toLowerCase())) {
         if (message[1] == adminPassword) {
             room.setPlayerAdmin(player.id, true);
@@ -949,7 +1054,7 @@ room.onPlayerChat = function (player, message) {
             localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", player.name];
             if (stats[Ss.RL] != "master") {
                 stats[Ss.RL] = "master";
-                room.sendChat(player.name + " is now a room master !");
+                room.sendAnnouncement("[📄] "+player.name+" se ha logeado como admin del host!",null,0xF8FF00,"bold");
                 localStorage.setItem(getAuth(player), JSON.stringify(stats));
             }
         }
@@ -1144,7 +1249,7 @@ room.onPlayerChat = function (player, message) {
                         loadMap(x3Map, scoreLimitx3, timeLimitx3);
                     } else {
                         console.log("3");
-                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id)
+                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id,0xFF0000,"bold")
                     }
                     break;
                 case "!fut4":
@@ -1154,7 +1259,7 @@ room.onPlayerChat = function (player, message) {
                         loadMap(x4Map, scoreLimitx4, timeLimitx4);
                     } else {
                         console.log("3");
-                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id)
+                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id,0xFF0000,"bold")
                     }                  
                     break;
                 case "!fut5":
@@ -1163,7 +1268,7 @@ room.onPlayerChat = function (player, message) {
                         quickRestart();
                         loadMap(x5Map, scoreLimitx5, timeLimitx5);
                     } else {
-                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id)
+                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id,0xFF0000,"bold")
                     }                  
                     break;
                 case "!fut7":
@@ -1173,7 +1278,7 @@ room.onPlayerChat = function (player, message) {
                         loadMap(x7Map, scoreLimitx7, timeLimitx7);
                     } else {
                         console.log("7");
-                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id)
+                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id,0xFF0000,"bold")
                     }                   
                     break;
             
@@ -1310,7 +1415,7 @@ room.onPlayerChat = function (player, message) {
             }
         }
     }
-
+    console.log("auth: "+getAuth(player));
     if (localStorage.getItem(getAuth(player))){
         stats = JSON.parse(localStorage.getItem(getAuth(player)));
         var announcement = "";
@@ -1358,6 +1463,8 @@ room.onPlayerChat = function (player, message) {
             announcement += "㋡ 「𝗜𝗻𝗶𝗰𝗶𝗮𝗻𝘁𝗲」"
             chatColor = "0xDDD4DB"
         }
+        console.log(announcement);
+        console.log(chatColor);
         var playerRole = JSON.parse(localStorage.getItem(getAuth(player)))[Ss.RL];
         if (playerRole == "vip"){
             announcement += "「👑VIP」";
@@ -1367,8 +1474,11 @@ room.onPlayerChat = function (player, message) {
             announcement += "「😈」";
             chatColor = "0xF8FF00";
         }
-
-        room.sendAnnouncement(announcement + player.name + ": " + originalMessage, null, chatColor);
+        console.log(announcement);
+        console.log(chatColor);
+        console.log(originalMessage)
+        announcement += player.name + ": " + originalMessage;
+        room.sendAnnouncement(announcement, null, chatColor);
         return false;   
     }   
 }
@@ -1547,6 +1657,10 @@ room.onStadiumChange = function (newStadiumName, byPlayer) {
 }
 
 room.onGameTick = function () {
+        PublicitaDiscord();
+        PublicitaDonacion();
+        PublicitaHelp();
+        PublicitaLiga();
     checkTime();
     getLastTouchOfTheBall();
     getStats();
