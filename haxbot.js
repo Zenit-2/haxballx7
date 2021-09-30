@@ -1238,48 +1238,27 @@ room.onPlayerChat = function (player, message) {
         room.kickPlayer(player.id, "Bye !", false);
     }
     else if (message[0].toLowerCase().startsWith("!fut")) {
-        console.log(message);
-        console.log(message[0]);
         if (player.admin) {
             switch (message[0]) {
                 case "!fut3":
-                    if (players.length > 5){
-                        maxTeamSize = 3;
-                        quickRestart();
-                        loadMap(x3Map, scoreLimitx3, timeLimitx3);
-                    } else {
-                        console.log("3");
-                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id,0xFF0000,"bold")
-                    }
+                    maxTeamSize = 3;
+                    quickRestart();
+                    loadMap(x3Map, scoreLimitx3, timeLimitx3);
                     break;
                 case "!fut4":
-                    if (players.length > 7){
-                        maxTeamSize = 4;
-                        quickRestart();
-                        loadMap(x4Map, scoreLimitx4, timeLimitx4);
-                    } else {
-                        console.log("3");
-                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id,0xFF0000,"bold")
-                    }                  
+                    maxTeamSize = 4;
+                    quickRestart();
+                    loadMap(x4Map, scoreLimitx4, timeLimitx4);              
                     break;
                 case "!fut5":
-                    if (players.length > 9){
-                        maxTeamSize = 5;
-                        quickRestart();
-                        loadMap(x5Map, scoreLimitx5, timeLimitx5);
-                    } else {
-                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id,0xFF0000,"bold")
-                    }                  
+                    maxTeamSize = 5;
+                    quickRestart();
+                    loadMap(x5Map, scoreLimitx5, timeLimitx5);                
                     break;
                 case "!fut7":
-                    if (players.length > 13){
-                        maxTeamSize = 7;
-                        quickRestart();
-                        loadMap(x7Map, scoreLimitx7, timeLimitx7);
-                    } else {
-                        console.log("7");
-                        room.sendChat("[PV] Faltan jugadores para iniciar.", player.id,0xFF0000,"bold")
-                    }                   
+                    maxTeamSize = 7;
+                    quickRestart();
+                    loadMap(x7Map, scoreLimitx7, timeLimitx7);                  
                     break;
             
                 default:
